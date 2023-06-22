@@ -28,5 +28,15 @@ class Mobile
 		return $this->provider->makeCall();
 	}
 
+    public function sendSms($number, $body)
+    {
+        if (!ContactService::validateNumber($number)) {
+            throw new Exception("Invalid number: $number");
+        }
 
+        $this->provider->setRecipient($number);
+        $this->provider->setMessage($body);
+
+        return $this->provider->send();
+    }
 }

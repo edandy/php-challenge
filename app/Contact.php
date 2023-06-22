@@ -5,9 +5,18 @@ namespace App;
 
 class Contact
 {
-	
-	function __construct()
+    /**
+     * @var
+     */
+    private $name;
+
+	function __construct($name)
 	{
-		# code...
+        $this->name = $name;
 	}
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
